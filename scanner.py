@@ -16,8 +16,8 @@ from datetime import datetime
 
 target = input(str('Target IP:'))
 
-print("Scanning Target: " + target)
-print("Scan start time: " + str(datetime.now()))
+print(f"Scanning Target: {target}")
+print(f"Scan start time: {str(datetime.now())}")
 
 def test_port(port):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
