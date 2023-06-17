@@ -22,14 +22,13 @@ print("Scan start time: " + str(datetime.now()))
 def test_port(port):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         socket.setdefaulttimeout(1)
-        print(f"Checking port {port}")
         result = s.connect_ex((target, port))
         if result == 0:
             print(f"Port {port} is open")
 
 try:
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-        for port in range(1, 1024):
+        for port in range(1, 8080):
             executor.map(test_port(port))
 
 except KeyboardInterrupt:
